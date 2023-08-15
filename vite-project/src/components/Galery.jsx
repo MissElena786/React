@@ -14,8 +14,8 @@ function Galery() {
    async function dowloadImage() {
       // const response = await axios.get("https://api.slingacademy.com/v1/sample-data/photos")
       const response = await axios.get("https://api.slingacademy.com/v1/sample-data/photos?offset=5&limit=20")
-      console.log(response.data);
-      console.log(response);
+      // console.log(response.data);
+      // console.log(response);
       const galeryResult = response.data.photos
       // console.log(galeryResult);
       // const galeryResultPromise  = galeryResult.map((photo)=> axios.get(photo.url))
@@ -56,19 +56,19 @@ function Galery() {
    return (
       <div className='galery'>
          <div className='heading-wrapper'>
-         <h1 className='heading'>Gallery</h1>
+            <h1 className='heading'>Gallery</h1>
 
          </div>
          <div className='gallery-item'>
-         {
-            (isLoading) ? "Loading..." :
+            {
+               (isLoading) ? "Loading..." :
 
-               galleryList.map((image) => <Photos title={image.title} url={image.url} key={image.id} />
-               )
+                  galleryList.map((image) => <Photos title={image.title} url={image.url} key={image.id} id={image.id} />
+                  )
 
-         }
+            }
 
-</div>
+         </div>
       </div>
    )
 }
